@@ -41,10 +41,49 @@
     background-position: center;
     border: 1px  solid red;
     flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
    
    }
    .panel1 { background-image:url(https://source.unsplash.com/gY1-utwng_I/1500x1500); }
-   .panle2 { background-image:url(https://source.unsplash.com/1CD3Fd8kHne/1500x1500);}
+   .panel2 { background-image:url(https://images.unsplash.com/photo-1465070845512-2b2dbdc6df66?auto=format&fit=crop&w=634&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);}
+   .panel3 {background-image: url(https://images.unsplash.com/photo-1485652326772-ff3eae0b221f?auto=format&fit=crop&w=1352&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);}
+   .panel4 {background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR0dNo_FlmEgUdahpMDSYOwawaFTZLLpnrUXuOo5AFgU2d_XbkOA);}
+   .panel5 {background-image: url(https://www.brecorder.com/wp-content/uploads/2017/05/imran-92-1024.jpg)}
+   
+   .panel > * {
+       margin: 0;
+       width: 100%;
+       transition: transform 0.5;
+       border: 1px solid red;
+       flex: 1 0 auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   .panel > *:first-child{ transform: translateY(-100%);}
+   .panel.open-active > *:first-child{ transform: translateY(0);}
+   .panel > *:last-child{ transform: translateY(100%);}
+   .panel.open-active > *:last-child{ transform: translateY(0);}
+   .panel p {
+       text-transform: uppercase;
+       font-family: 'Amatic SC', cursive;
+       text-shadow :0 0 4px rgba (0, 0, 0, 0.72),0 0 14px rgba(0, 0, 0, 0.45);
+       font-size: 2em;
+   }
+
+   .panel p:nth-child(2){
+       font-size : 4em;
+   }
+   
+   .panel.open {
+       font-size :40 px;
+       flex: 5;
+
+   }
+   
    .cta {
        color: white;
        text-decoration: none;
@@ -75,7 +114,15 @@
                     <p>Life</p>
                     <p>In</p>
                     <p>Motion</p>
-                </div>
-    </div>
+                </div> 
+            </div>
+            <script>
+            const panels = document.querySelectorAll('.panels');
+            function toggleOpen(){
+                console.log("helloworld");
+                this.classList.toggle('open');
+            }
+            panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+            </script>
 </body>
 </html>
